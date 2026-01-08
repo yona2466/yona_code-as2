@@ -81,9 +81,12 @@ File: `src/left_factor.cpp`
 #include <string>
 
 struct Production {
+
 std::string lhs;
+
 std::vectorstd::string rhs;
 Production(std::string l, std::vector<std::string> r) 
+
     : lhs(l), rhs(r) {}
     };
 
@@ -102,11 +105,15 @@ void leftFactor() {
 }
 
 void printProductions() {
+
     for (const auto& prod : productions) {
+    
         std::cout << prod.lhs << " -> ";
         for (size_t i = 0; i < prod.rhs.size(); i++) {
+        
             if (i > 0) std::cout << " | ";
             for (const auto& sym : prod.rhs) {
+            
                 std::cout << sym << " ";
             }
         }
@@ -119,7 +126,9 @@ int main() {
 LeftFactorer factorer;
 // Example: if-then-else grammar
 factorer.addProduction(Production("S", {"if", "E", "then", "S"}));
+
 factorer.addProduction(Production("S", {"if", "E", "then", "S", "else", "S"}));
+
 factorer.addProduction(Production("S", {"other"}));
 
 std::cout << "Original Grammar:" << std::endl;
