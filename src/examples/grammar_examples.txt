@@ -1,0 +1,34 @@
+=== Grammar Examples for Left-Factoring ===
+
+Example 1: Simple If-Else
+Original:
+  S → if E then S
+  S → if E then S else S
+  S → other
+
+After Left-Factoring:
+  S → if E then S S'
+  S → other
+  S' → else S | ε
+
+Example 2: Expression Grammar
+Original:
+  E → T + E
+  E → T - E
+  E → T
+
+After Left-Factoring:
+  E → T E'
+  E' → + E | - E | ε
+
+Example 3: Type Declaration
+Original:
+  T → int
+  T → int[]
+  T → float
+  T → float[]
+
+After Left-Factoring:
+  T → base T'
+  base → int | float
+  T' → ε | []
