@@ -73,9 +73,8 @@ E → T
 E → T E'
 E' → + E | - E | ε
 
-## 6. Implementation in C++
+## 6. Implementation in C++  File:`src/left_factor.cpp`
 
-File: `src/left_factor.cpp`
 #include <iostream>
 #include <vector>
 #include <string>
@@ -85,9 +84,10 @@ struct Production {
 std::string lhs;
 
 std::vectorstd::string rhs;
+
 Production(std::string l, std::vector<std::string> r) 
 
-    : lhs(l), rhs(r) {}
+ : lhs(l), rhs(r) {}
     };
 
 class LeftFactorer {
@@ -106,15 +106,14 @@ void leftFactor() {
 
 void printProductions() {
 
-    for (const auto& prod : productions) {
+ for (const auto& prod : productions) {
     
-        std::cout << prod.lhs << " -> ";
+ std::cout << prod.lhs << " -> ";
         for (size_t i = 0; i < prod.rhs.size(); i++) {
-        
-            if (i > 0) std::cout << " | ";
+                if (i > 0) std::cout << " | ";
             for (const auto& sym : prod.rhs) {
             
-                std::cout << sym << " ";
+  std::cout << sym << " ";
             }
         }
         std::cout << std::endl;
